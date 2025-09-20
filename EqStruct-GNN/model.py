@@ -76,7 +76,7 @@ class FairItemNet(nn.Module):
         return fair_score
 
 
-class FairCoGNN(nn.Module):
+class EqStructGNN(nn.Module):
     def __init__(self, in_channels, hidden_channels, out_channels,sensitive_attr, num_layers=2, tau=1.0,
                  num_users=6040, num_movies=3706):
         super().__init__()
@@ -273,3 +273,4 @@ class FairCoGNN(nn.Module):
         socre_mat = user_emb @ item_emb.T
         values, indices = socre_mat.topk(k)
         return indices
+
